@@ -1,5 +1,7 @@
 celery
 ipdb
+ipython
 requests-html
 python-dotenv
 slackclient
+redis
