@@ -1,0 +1,5 @@
+celery
+ipdb
+requests-html
+python-dotenv
+slackclient
