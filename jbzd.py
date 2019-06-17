@@ -1,10 +1,4 @@
-import json
-import os.path as path
-from datetime import datetime
-
 from requests_html import HTMLSession
-
-import config
 import utils
 
 PAGES_LIMIT = 2
