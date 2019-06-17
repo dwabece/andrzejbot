@@ -37,4 +37,4 @@ def spam2slack():
     for image in images:
         post_meme(image)
         sleep(.5)
-    slackbot.post({'text': 'No i chuj no i cześć'})
+    post({'text': 'No i chuj no i cześć'})

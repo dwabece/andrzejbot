@@ -1,5 +1,6 @@
 import json
 import redis
+import requests
 import config
 
 
@@ -27,7 +28,9 @@ def set_timestamp(images):
 
 def get_timestamp():
     redis_ = _get_redis()
-    return redis_.get(config.REDIS_TIMESTAMP_FIELD).decode('utf-8')
+    timestamp = redis_.get(config.REDIS_TIMESTAMP_FIELD)
+    if timestamp:
+        return timestamp.decode('utf-8')
 
 
 def dump2json(images):
@@ -67,3 +70,10 @@ def dump2html(images, save_to_file=True):
             f.writelines(body)
 
     return body
+
+
+def fetch_page(url: str):
+    result = requests.get(url)
+    result.raise_for_status()
+
+    return result.content

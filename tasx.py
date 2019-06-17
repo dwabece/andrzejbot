@@ -8,8 +8,7 @@ APP = Celery('tasx', broker=config.RABBIT_URL)
 
 @APP.on_after_configure.connect
 def setup_periodic_tasks(sender, **kwargs):
-    MEMEPOST_INTERVAL = 60 * 10
-    sender.add_periodic_task(MEMEPOST_INTERVAL, beat_memes.s())
+    sender.add_periodic_task(config.MEMEPOST_INTERVAL, beat_memes.s())
 
 
 @APP.task()
