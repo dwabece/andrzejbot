@@ -7,9 +7,9 @@ load_dotenv(verbose=True)
 BASE_PATH = os.path.dirname(os.path.abspath(__file__))
 DATA_PATH = os.path.join(BASE_PATH, 'data')
 
-SLACK_ROOM = 'jbzd'
-if os.environ.get('ENV') == 'TEST':
-    SLACK_ROOM = 'andrzejtest'
+SLACK_ROOM = os.getenv('SLACK_CHANNEL')
+if os.environ.get('ENV', 'TEST') == 'TEST':
+    SLACK_ROOM = os.getenv('SLACK_DEV_CHANNEL')
 
 ACCESS_TOKEN = os.getenv('ACCESS_TOKEN')
 BOT_ACCESS_TOKEN = os.getenv('BOT_ACCESS_TOKEN')
